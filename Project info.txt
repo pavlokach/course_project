@@ -16,3 +16,5 @@ Alerts
 Мій початково створений запит виглядав так: https://api.darksky.net/forecast/myapikey/49.8397,24.0297
 Після використання можливості зміни запиту він став такий:
 https://api.darksky.net/forecast/myapikey/49.8397,24.0297?units=si&lang=uk&exclude=currently,minutely,hourly,alerts,flags
+
+Project is powered by: https://darksky.net/poweredby/
