@@ -1,5 +1,5 @@
 class Data:
-    __link = 'https://api.darksky.net/forecast/1f1c351099874a0b925a89f198c779dc/49.8397,24.0297?units=si&lang=uk&exclude=currently,minutely,hourly,alerts,flags'
+    __link = 'https://api.darksky.net/forecast/1f1c351 099874a0b925a89f198c779dc/49.8397,24.0297?units=si&lang=uk&exclude=currently,minutely,hourly,alerts,flags'
     cycle = 0
 
     def __init__(self, filename):
@@ -23,7 +23,6 @@ class Data:
         if self.cycle == 31:
             self.cycle = 1
         return self.alldata['daily']['data'][0]
-        """[self.cycle - 1]"""
 
     def get_parameters(self):
         data = self.extract_day_data()
@@ -33,10 +32,9 @@ class Data:
         self.humidity = data['humidity']
         self.wind = data['windSpeed']
 
-    def all_things(self):
+    def analyzer(self):
         from datetime import date
-        today = str(date.today())[5:]
-        print(today)
+            today = str(date.today())[5:]
 
         with open("SKN.txt", "r", encoding="UTF-8") as f:
             parameters = []
@@ -168,5 +166,5 @@ d.get_data()
 d.extract_from_file()
 print(d.extract_day_data())
 d.get_parameters()
-print(d.all_things())
+print(d.analyzer())
 """
