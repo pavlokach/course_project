@@ -6,6 +6,11 @@ class Data:
         self.filename = filename
 
     def get_data(self):
+        """
+        Function to read data and write it to file
+
+        :return:
+        """
         import json
         import urllib.request
         f = urllib.request.urlopen(self.__link)
@@ -14,17 +19,33 @@ class Data:
             json.dump(data, outfile)
 
     def extract_from_file(self):
+        '''
+        Function to read data from file and save it to class variable
+
+        :return:
+        '''
         import json
         with open(self.filename, 'r') as f:
             self.alldata = json.load(f)
 
     def extract_day_data(self):
+        """
+        Function to get data for just one day
+
+        :return data for day
+        """
         self.cycle += 1
         if self.cycle == 31:
             self.cycle = 1
         return self.alldata['daily']['data'][0]
 
     def get_parameters(self):
+        """
+        Function to get parameters like temperature,
+        pressure, humidity, precipation and wind speed
+
+        :return:
+        """
         data = self.extract_day_data()
         self.temp = (data['temperatureMax'] + data['temperatureMin']) / 2
         self.press = data['pressure']
@@ -33,6 +54,12 @@ class Data:
         self.wind = data['windSpeed']
 
     def analyzer(self):
+        """
+        Function to analyze all data
+        to check danger level and danger factors
+
+        :return processed data
+        """
         from datetime import date
             today = str(date.today())[5:]
 
